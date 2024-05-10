@@ -48,7 +48,7 @@ const Pokedex = () => {
         </form>
         <PokeSelect setSelectValue={setSelectValue} />
       </div>
-      <div className="">
+      <div className="pokedex_container">
         {pokemons?.results.filter(pokeSearch).map((poke) => (
           <PokeCard key={poke.url} url={poke.url} />
         ))}

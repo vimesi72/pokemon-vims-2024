@@ -20,6 +20,7 @@ const PokeCard = ({ url }) => {
 
   return (
     <article onClick={handlePokemon} className="pokecard">
+      <div className={`pokecard__back ${pokemon?.types[0].type.name}`}></div>
       <figure className="pokecard__img">
         <img
           src={pokemon?.sprites.other["official-artwork"].front_default}
@@ -29,7 +30,9 @@ const PokeCard = ({ url }) => {
       <h3 className="pokecard__name">{pokemon?.name}</h3>
       <ul className="pokecard__types">
         {pokemon?.types.map((type) => (
-          <li key={type.type.url}>{type.type.name}</li>
+          <li className={`slot${type.slot}`} key={type.type.url}>
+            {type.type.name}
+          </li>
         ))}
       </ul>
       <span>type</span>
