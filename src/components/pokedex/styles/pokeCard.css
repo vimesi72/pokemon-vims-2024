@@ -1,3 +1,33 @@
 .pokecard {
   width: 250px;
+  border: 5px solid;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pokecard__img {
+  width: 70%;
+}
+.pokecard__types {
+  display: flex;
+}
+.slot2::before {
+  content: "/";
+  margin: 0 5px;
+}
+.pokecard hr {
+  width: 90%;
+}
+.pokecard__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 10px;
+}
+.pokecard__stats li {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 10px;
 }

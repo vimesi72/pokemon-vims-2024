@@ -20,21 +20,21 @@ const PokeCard = ({ url }) => {
 
   return (
     <article onClick={handlePokemon} className="pokecard">
-      <figure>
+      <figure className="pokecard__img">
         <img
           src={pokemon?.sprites.other["official-artwork"].front_default}
           alt="pokemonimage"
         />
       </figure>
-      <h3>{pokemon?.name}</h3>
-      <ul>
+      <h3 className="pokecard__name">{pokemon?.name}</h3>
+      <ul className="pokecard__types">
         {pokemon?.types.map((type) => (
           <li key={type.type.url}>{type.type.name}</li>
         ))}
       </ul>
       <span>type</span>
       <hr />
-      <ul>
+      <ul className="pokecard__stats">
         {pokemon?.stats.map(
           (stat) =>
             !stat.stat.name.includes("-") && (

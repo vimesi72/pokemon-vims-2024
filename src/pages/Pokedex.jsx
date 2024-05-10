@@ -8,14 +8,18 @@ import PokeSelect from "../components/pokedex/PokeSelect";
 const Pokedex = () => {
   const [selectValue, setSelectValue] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [pokemons, getPokemons] = useFetch();
+  const [pokemons, getPokemons, getType] = useFetch();
 
   const trainer = useSelector((store) => store.trainer);
 
   useEffect(() => {
-    const url = "https://pokeapi.co/api/v2/pokemon";
-    getPokemons(url);
-  }, []);
+    if (selectValue) {
+      getType(selectValue);
+    } else {
+      const url = "https://pokeapi.co/api/v2/pokemon";
+      getPokemons(url);
+    }
+  }, [selectValue]);
 
   const textInput = useRef();
 
@@ -44,7 +48,7 @@ const Pokedex = () => {
         </form>
         <PokeSelect setSelectValue={setSelectValue} />
       </div>
-      <div>
+      <div className="">
         {pokemons?.results.filter(pokeSearch).map((poke) => (
           <PokeCard key={poke.url} url={poke.url} />
         ))}

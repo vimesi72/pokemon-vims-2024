@@ -1,3 +1,8 @@
 .pokedex__title span {
   color: red;
 }
+.pokedex__container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
